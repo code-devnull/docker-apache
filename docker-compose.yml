@@ -3,7 +3,7 @@ version: '3.3'
 services:
   phpapache:
     #image: titangene/php-apache-mysql:v1.0
-    build: ./php
+    build: ./apache
     ports:
       - "8080:80"
       - "443:443"
@@ -11,6 +11,10 @@ services:
       - mysql
     volumes:
       - ./html:/var/www/html
+  php:
+    build: ./php
+    volumes:
+      - ./html:/var/www/html/
   mysql:
     build: ./mysql
     ports:
